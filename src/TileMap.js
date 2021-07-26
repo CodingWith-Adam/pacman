@@ -193,6 +193,14 @@ export default class TileMap {
     return false;
   }
 
+  didWin() {
+    return this.#dotsLeft() === 0;
+  }
+
+  #dotsLeft() {
+    return this.map.flat().filter((tile) => tile === 0).length;
+  }
+
   eatDot(x, y) {
     const row = y / this.tileSize;
     const column = x / this.tileSize;
